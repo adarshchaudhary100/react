@@ -1,9 +1,13 @@
-
+import Coffee from "./coffee"
 
 function App() {
   
   return (
-     <h1>Reach with vite  | Adarsh</h1>
+    <>
+    <Coffee/>
+     <h1>React with vite  | Adarsh</h1>
+     <p>This is awesome</p>
+     </> 
   )
 }
 
