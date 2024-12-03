@@ -7,8 +7,10 @@ function App() {
   let [Counter,setcounter]=useState(15);
    const addvalue=()=>{
       // Counter=  Counter+1;
-      if(Counter<20)
-      setcounter(Counter+1);
+      // if(Counter<20)
+      setcounter(prevcounter=>prevcounter+1);
+      setcounter(prevcounter=>prevcounter+1);
+      setcounter(prevcounter=>prevcounter+1);
       console.log("value added", Math.random());
    }
    const removeValue=()=>{
