@@ -1,11 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 export default function Home() {
     return (
         <div className="mx-auto w-full max-w-7xl">
-            {/* Hero Section */}
-            <aside className="relative bg-gradient-to-br from-purple-600 via-blue-500 to-indigo-600 text-white rounded-lg sm:mx-16 mx-4 sm:py-20 py-12 overflow-hidden shadow-lg">
+            {/* Hero Section with Gray Background */}
+            <aside
+                className="relative bg-gray-500 text-white rounded-lg sm:mx-16 mx-4 sm:py-20 py-12 overflow-hidden shadow-lg"
+            >
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 w-full h-full bg-black opacity-40"></div>
+
                 <div className="relative z-10 max-w-screen-xl px-6 sm:px-12 lg:px-16 flex flex-col-reverse sm:flex-row items-center justify-between">
                     {/* Text Content */}
                     <div className="max-w-xl text-center sm:text-left space-y-6">
@@ -16,9 +20,11 @@ export default function Home() {
                         <p className="text-lg sm:text-xl text-gray-200">
                             Discover the ultimate tools for seamless remote collaboration and enhance your workflow with ease.
                         </p>
-                        <Link
+                        <a
                             className="inline-flex items-center px-6 py-3 font-semibold text-lg bg-yellow-500 hover:bg-yellow-600 text-black rounded-lg shadow-md transform hover:scale-105 transition-all duration-300"
-                            to="/"
+                            href="https://www.linkedin.com/in/adarsh-chaudhary-912329173/"
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
                             <svg
                                 fill="currentColor"
@@ -29,17 +35,17 @@ export default function Home() {
                                 fillRule="evenodd"
                                 clipRule="evenodd"
                             >
-                                <path d="M1.571 23.664l10.531-10.501 3.712 3.701-12.519 6.941c-.476.264-1.059.26-1.532-.011l-.192-.13zm9.469-11.56l-10.04 10.011v-20.022l10.04 10.011zm6.274-4.137l4.905 2.719c.482.268.781.77.781 1.314s-.299 1.046-.781 1.314l-5.039 2.793-4.015-4.003 4.149-4.137zm-15.854-7.534c.09-.087.191-.163.303-.227.473-.271 1.056-.275 1.532-.011l12.653 7.015-3.846 3.835-10.642-10.612z" />
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                             </svg>
-                            Download Now
-                        </Link>
+                            Visit Here
+                        </a>
                     </div>
 
                     {/* Hero Image */}
                     <div className="relative sm:max-w-md lg:max-w-lg">
                         <img
                             className="rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
-                            src="https://files.oaiusercontent.com/file-Np7ZRuV8tLkdmKvetkg3VN?se=2024-12-12T14%3A22%3A25Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D299%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3DIMG_2847.JPG&sig=xgDxLwMNkNcbcw1E8ofsxU3af9bUKvwgLYgAIViKh8U%3D"
+                            src="https://i.ibb.co/P99nFb2/pencil-sketch-image.jpg"
                             alt="Download Illustration"
                         />
                     </div>
@@ -50,14 +56,14 @@ export default function Home() {
             <div className="grid place-items-center sm:mt-20 mt-12">
                 <img
                     className="sm:w-96 w-48 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
-                    src="https://i.ibb.co/2M7rtLk/Remote1.png"
+                    src="https://i.ibb.co/3yMbdrM/pencilsketchadjusted-1012896.jpg"
                     alt="Additional Illustration"
                 />
             </div>
 
             {/* Footer Section */}
             <h1 className="text-center text-2xl sm:text-4xl py-10 font-extrabold text-gray-800">
-                <span className="text-indigo-600">Lorem Ipsum Yojo</span>
+                <span className="text-indigo-600">Lorem Ipsum </span>
                 <span className="block text-gray-600 text-lg sm:text-xl mt-2">
                     Redefining how you work remotely.
                 </span>

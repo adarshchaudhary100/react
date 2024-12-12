@@ -8,7 +8,7 @@ export default function Footer() {
                     <div className="mb-6 md:mb-0">
                         <Link to="/" className="flex items-center">
                             <img
-                                src="https://alexharkness.com/wp-content/uploads/2020/06/logo-2.png"
+                                src="https://files.oaiusercontent.com/file-McvAY8EKYpjJ9dbQPFesPa?se=2024-12-12T14%3A02%3A18Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3De2a07126-eb3e-4070-aeb1-fe82ce0eaffa.webp&sig=Stn1yXx4LBrl5I4gBoOxRJDyep97EyoELebbokHm1GU%3D"
                                 className="mr-3 h-16"
                                 alt="Logo"
                             />
@@ -35,7 +35,7 @@ export default function Footer() {
                             <ul className="text-gray-500 font-medium">
                                 <li className="mb-4">
                                     <a
-                                        href="https://github.com/hiteshchoudhary"
+                                        href="https://github.com/adarshchaudhary100"
                                         className="hover:underline"
                                         target="_blank"
                                         rel="noreferrer"
@@ -71,8 +71,8 @@ export default function Footer() {
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <span className="text-sm text-gray-500 sm:text-center">
                         © 2023
-                        <a href="https://hiteshchoudhary.com/" className="hover:underline">
-                            hiteshchoudhary
+                        <a href="https://i.ibb.co/pyLJ5HJ/IMG-20240704-172547137-HDR-AE.jpg" className="hover:underline">
+                            Adarsh Chaudhary
                         </a>
                         . All Rights Reserved.
                     </span>
