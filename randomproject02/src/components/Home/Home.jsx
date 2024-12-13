@@ -1,12 +1,55 @@
 import React from 'react';
 
 export default function Home() {
+    const profiles = [
+        {
+            platform: 'CodeChef',
+            description: '5 Star Rating',
+            link: 'https://www.codechef.com/users/adarshch18',
+            logo: 'https://i.ibb.co/svPSX1y/Screenshot-2024-12-13-170232-removebg-preview.png',
+            size: 'h-32 w-41', // Increased size for CodeChef
+        },
+        {
+            platform: 'CodeForces',
+            description: 'Problem Practice',
+            link: 'https://codeforces.com/profile/Adarsh_Chaudhary',
+            logo: 'https://i.ibb.co/J5qtQm1/Screenshot-2024-12-13-170639-removebg-preview.png',
+            size: 'h-32 w-41', // Increased size for CodeForces
+        },
+        {
+            platform: 'LeetCode',
+            description: 'Daily Practice',
+            link: 'https://leetcode.com/u/akulchaudhary786/',
+            logo: 'https://cdn.iconscout.com/icon/free/png-256/leetcode-3521542-2944960.png',
+            size: 'h-24 w-24', // Normal size for LeetCode
+        },
+        {
+            platform: 'Code360',
+            description: 'MCQ Practice',
+            link: 'https://www.naukri.com/code360/profile/ce30ddda-a443-4624-ae6f-29bd8911c5e5',
+            logo: 'https://i.ibb.co/YNs1sjC/Screenshot-2024-12-13-170911-removebg-preview.png',
+            size: 'h-32 w-41', // Increased size for Code360
+        },
+        {
+            platform: 'GeeksForGeeks',
+            description: 'Problem Practice',
+            link: 'https://www.geeksforgeeks.org/user/akulchaudhary786/',
+            logo: 'https://upload.wikimedia.org/wikipedia/commons/4/43/GeeksforGeeks.svg',
+            size: 'h-24 w-24', // Normal size for GeeksForGeeks
+        },
+        {
+            platform: 'Today Best Problem',
+            description: 'Daily Update',
+            link: 'https://codeforces.com/problemset/problem/2046/A',
+            logo: 'https://i.ibb.co/ZN7VLgn/IMG-3318-removebg.png',
+            size: 'h-24 w-30', // Normal size for Today Best Problem
+        },
+    ];
+
     return (
         <div className="mx-auto w-full max-w-7xl">
             {/* Hero Section with Gray Background */}
-            <aside
-                className="relative bg-gray-500 text-white rounded-lg sm:mx-16 mx-4 sm:py-20 py-12 overflow-hidden shadow-lg"
-            >
+            <aside className="relative bg-gray-500 text-white rounded-lg sm:mx-16 mx-4 sm:py-20 py-12 overflow-hidden shadow-lg">
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 w-full h-full bg-black opacity-40"></div>
 
@@ -52,18 +95,41 @@ export default function Home() {
                 </div>
             </aside>
 
-            {/* Centered Image Section */}
-            <div className="grid place-items-center sm:mt-20 mt-12">
-                <img
-                    className="sm:w-96 w-48 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
-                    src="https://i.ibb.co/3yMbdrM/pencilsketchadjusted-1012896.jpg"
-                    alt="Additional Illustration"
-                />
+            {/* Coding Profiles Section */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:mt-20 mt-12 px-6">
+                {profiles.map((profile, index) => (
+                    <div
+                        key={index}
+                        className="p-6 bg-gray-100 text-center rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col items-center justify-between"
+                    >
+                        <div className="flex items-center justify-center space-x-4 mb-4">
+                            {/* Description on the left and Logo on the right */}
+                            <div className="flex flex-col items-start text-left">
+                                <h3 className="text-xl font-bold text-gray-800">{profile.platform}</h3>
+                                <p className="text-gray-600">{profile.description}</p>
+                            </div>
+                            <img
+                                className={`${profile.size} object-contain`}
+                                src={profile.logo}
+                                alt={`${profile.platform} logo`}
+                            />
+                        </div>
+
+                        <a
+                            href={profile.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block mt-4 px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-colors duration-300"
+                        >
+                            View Profile
+                        </a>
+                    </div>
+                ))}
             </div>
 
             {/* Footer Section */}
             <h1 className="text-center text-2xl sm:text-4xl py-10 font-extrabold text-gray-800">
-                <span className="text-indigo-600">Lorem Ipsum </span>
+                <span className="text-indigo-600">Code Daily </span>
                 <span className="block text-gray-600 text-lg sm:text-xl mt-2">
                     Redefining how you work remotely.
                 </span>
