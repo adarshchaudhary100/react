@@ -1,6 +1,14 @@
 import { useState, useEffect } from 'react';
 import { ProfileData, PlatformStatistics } from '../types/profile';
-import { fetchLeetCodeStats, fetchCodeforcesStats, fetchGFGStats } from '../services/platformApi';
+import {
+  fetchLeetCodeStats,
+  fetchCodeforcesStats,
+  fetchGFGStats,
+  fetchCodeChefStats,
+  fetchHackerRankStats,
+  fetchAtCoderStats,
+  fetchGitHubStats
+} from '../services/platformApi';
 
 export function useProfileStats(profiles: ProfileData) {
   const [stats, setStats] = useState<Record<string, PlatformStatistics>>({});
@@ -12,37 +20,39 @@ export function useProfileStats(profiles: ProfileData) {
       setLoading(true);
       setError(null);
       
+      const platformFetchers = {
+        leetcode: fetchLeetCodeStats,
+        codeforces: fetchCodeforcesStats,
+        geeksforgeeks: fetchGFGStats,
+        codechef: fetchCodeChefStats,
+        hackerrank: fetchHackerRankStats,
+        atcoder: fetchAtCoderStats,
+        github: fetchGitHubStats
+      };
+      
       try {
-        const statsPromises = [];
+        const results = await Promise.allSettled(
+          Object.entries(profiles)
+            .filter(([, profile]) => profile?.username)
+            .map(async ([platform, profile]) => {
+              const stats = await platformFetchers[platform as keyof typeof platformFetchers](profile!.username);
+              return { platform, stats };
+            })
+        );
         
-        if (profiles.leetcode?.username) {
-          statsPromises.push(
-            fetchLeetCodeStats(profiles.leetcode.username)
-              .then(stats => ({ platform: 'leetcode', stats }))
-          );
-        }
-        
-        if (profiles.codeforces?.username) {
-          statsPromises.push(
-            fetchCodeforcesStats(profiles.codeforces.username)
-              .then(stats => ({ platform: 'codeforces', stats }))
-          );
-        }
-        
-        if (profiles.geeksforgeeks?.username) {
-          statsPromises.push(
-            fetchGFGStats(profiles.geeksforgeeks.username)
-              .then(stats => ({ platform: 'geeksforgeeks', stats }))
-          );
-        }
-
-        const results = await Promise.all(statsPromises);
-        const newStats = results.reduce((acc, { platform, stats }) => ({
-          ...acc,
-          [platform]: stats
-        }), {});
+        const newStats = results.reduce((acc, result) => {
+          if (result.status === 'fulfilled') {
+            const { platform, stats } = result.value;
+            return { ...acc, [platform]: stats };
+          }
+          return acc;
+        }, {});
         
         setStats(newStats);
+        
+        if (results.every(result => result.status === 'rejected')) {
+          setError('Failed to fetch statistics from all platforms');
+        }
       } catch (err) {
         setError('Failed to fetch platform statistics');
       } finally {
@@ -50,7 +60,12 @@ export function useProfileStats(profiles: ProfileData) {
       }
     };
 
-    fetchStats();
+    if (Object.keys(profiles).length > 0) {
+      fetchStats();
+    } else {
+      setStats({});
+      setLoading(false);
+    }
   }, [profiles]);
 
   const totalSolved = Object.values(stats).reduce(

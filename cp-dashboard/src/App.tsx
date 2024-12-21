@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Code2 } from 'lucide-react'
+import { Code2 } from 'lucide-react';
 import { ActivityGraph } from './components/ActivityGraph';
 import { PlatformCard } from './components/PlatformCard';
 import { TotalProgress } from './components/TotalProgress';
